@@ -18,6 +18,7 @@ import javafx.util.Callback
 import tornadofx.*
 import java.util.*
 
+//test
 class WordOccurrenceView(
     wordRank: Map<Word, Int>,
     wordsInListNotInGlossary: List<Word>,
