@@ -6,6 +6,15 @@ import javafx.scene.paint.Color
 import javafx.scene.text.FontWeight
 import tornadofx.*
 
+private const val white_color = "#ffffff"
+
+private const val dm_sans_font = "DM Sans"
+
+
+private const val sans_serif_font = "sans-serif"
+
+private const val black_color = "#000000"
+
 class ViewStyles : Stylesheet() {
     companion object {
         val heading by cssclass()
@@ -30,8 +39,8 @@ class ViewStyles : Stylesheet() {
             cursor = Cursor.HAND
             backgroundColor += c("#84B71A")
             backgroundRadius += box(15.px)
-            textFill = c("#ffffff")
-            fontFamily = listOf("DM Sans", "Arial", "Helvetica", "sans-serif").joinToString(",")
+            textFill = c(white_color)
+            fontFamily = listOf(dm_sans_font, "Arial", "Helvetica", sans_serif_font).joinToString(",")
 
             and(hover) {
                 backgroundColor += c("#388E3C")
@@ -41,12 +50,12 @@ class ViewStyles : Stylesheet() {
         helpButton {
             fontSize = 18.px
             cursor = Cursor.HAND
-            backgroundColor += c("#FFFFFF")
+            backgroundColor += c(white_color)
             backgroundRadius += box(15.px)
             borderRadius += box(15.px)
             borderWidth += box(1.px)
-            borderColor += box(c("#000000"))
-            fontFamily = listOf("DM Sans", "Arial", "Helvetica", "sans-serif").joinToString(",")
+            borderColor += box(c(black_color))
+            fontFamily = listOf(dm_sans_font, "Arial", "Helvetica", sans_serif_font).joinToString(",")
 
             and(hover) {
                 backgroundColor += c("#D7D7D7")
@@ -56,10 +65,10 @@ class ViewStyles : Stylesheet() {
         downloadButton {
             fontSize = 18.px
             cursor = Cursor.HAND
-            backgroundColor += c("#000000")
+            backgroundColor += c(black_color)
             backgroundRadius += box(15.px)
-            textFill = c("#ffffff")
-            fontFamily = listOf("DM Sans", "Arial", "Helvetica", "sans-serif").joinToString(",")
+            textFill = c(white_color)
+            fontFamily = listOf(dm_sans_font, "Arial", "Helvetica", sans_serif_font).joinToString(",")
 
         }
 
@@ -67,10 +76,10 @@ class ViewStyles : Stylesheet() {
 
             fontSize = 18.px
             cursor = Cursor.HAND
-            backgroundColor += c("#000000")
+            backgroundColor += c(black_color)
             backgroundRadius += box(15.px)
-            textFill = c("#ffffff")
-            fontFamily = listOf("DM Sans", "Arial", "Helvetica", "sans-serif").joinToString(",")
+            textFill = c(white_color)
+            fontFamily = listOf(dm_sans_font, "Arial", "Helvetica", sans_serif_font).joinToString(",")
 
             and(hover) {
                 backgroundColor += c("#5C5E60")
@@ -92,7 +101,7 @@ class ViewStyles : Stylesheet() {
         }
 
         customTableHeader {
-            textFill = c("#FFFFFF")
+            textFill = c(white_color)
             backgroundColor += c("#736C6C")
         }
 
