@@ -19,6 +19,8 @@ import tornadofx.*
 import java.io.File
 import java.util.*
 
+private const val bold_style = "-fx-font-weight: bold"
+
 class ButtonBarView(
     private val myBundle: ResourceBundle,
     private val words: ObservableList<Word>,
@@ -55,23 +57,23 @@ class ButtonBarView(
                     title = myBundle.getString("help_title")
                     dialogPane.buttonTypes.add(ButtonType.CLOSE)
                     val textFlow = TextFlow(
-                        Text(myBundle.getString("token_label") + "\n").apply { style = "-fx-font-weight: bold" },
+                        Text(myBundle.getString("token_label") + "\n").apply { style = bold_style },
                         Text(myBundle.getString("statute_obligatory") + "\n" + myBundle.getString("description_token") + "\n\n"),
                         Text(myBundle.getString("definition_label") + "\n").apply {
-                            style = "-fx-font-weight: bold"
+                            style = bold_style
                         },
                         Text(myBundle.getString("statute_facultative") + "\n " + myBundle.getString("description_definition") + "\n\n"),
                         Text(myBundle.getString("primary_context_label") + "\n").apply {
-                            style = "-fx-font-weight: bold"
+                            style = bold_style
                         },
                         Text(myBundle.getString("statute_obligatory") + "\n" + myBundle.getString("description_primary_context") + "\n\n"),
                         Text(myBundle.getString("secondary_context_label") + "\n").apply {
-                            style = "-fx-font-weight: bold"
+                            style = bold_style
                         },
                         Text(myBundle.getString("statute_facultative") + "\n" + myBundle.getString("description_secondary_content") + "\n\n"),
-                        Text(myBundle.getString("synonym_label") + "\n").apply { style = "-fx-font-weight: bold" },
+                        Text(myBundle.getString("synonym_label") + "\n").apply { style = bold_style },
                         Text(myBundle.getString("statute_facultative") + "\n" + myBundle.getString("description_synonym") + "\n\n"),
-                        Text(myBundle.getString("antonym_label") + "\n").apply { style = "-fx-font-weight: bold" },
+                        Text(myBundle.getString("antonym_label") + "\n").apply { style = bold_style },
                         Text(myBundle.getString("statute_facultative") + "\n" + myBundle.getString("description_antonym") + "\n\n")
                     )
                     dialogPane.content = textFlow
