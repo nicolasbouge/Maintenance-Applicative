@@ -36,8 +36,10 @@ public class JsonGlossaryDao implements GlossaryDao {
 
         if (!this.jsonFile.exists()) {
             try {
-                this.jsonFile.createNewFile();
-                this.writeListToFile(new ArrayList<>());
+                boolean fileCreated = this.jsonFile.createNewFile();
+                if (!fileCreated) {
+                    throw new IOException("Unable to create file");
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
