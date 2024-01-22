@@ -12,7 +12,7 @@ class JavaFileSanitizer : FileSanitizer {
         private val JAVA_RESERVED_KEYWORDS = loadJavaReservedKeywords()
 
         private fun loadJavaReservedKeywords(): Set<String> {
-            val loader: KeywordDao = TxtKeywordDao()
+            val loader: KeywordDao = TxtKeywordDao("/java_reserved_keywords.txt")
             return loader.loadKeywords()
         }
 
