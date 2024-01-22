@@ -9,7 +9,7 @@ import javafx.scene.Node
 import javafx.scene.Scene
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
-import javafx.scene.control.TableView.CONSTRAINED_RESIZE_POLICY
+import javafx.scene.control.TableView.CONSTRAINED_RESIZE_POLICY_LAST_COLUMN
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 import javafx.scene.text.TextAlignment
@@ -37,7 +37,7 @@ class WordOccurrenceView(
         val tableView = TableView<String>().apply {
             items = fileNamesList
 
-            columnResizePolicy = CONSTRAINED_RESIZE_POLICY
+            columnResizePolicy = CONSTRAINED_RESIZE_POLICY_LAST_COLUMN
             columns.clear()
 
             val fileNameColumn = TableColumn<String, String>("Fichiers" + " ⇅")
@@ -106,7 +106,7 @@ class WordOccurrenceView(
             prefWidth = 100.0
         }
 
-        columnResizePolicy = CONSTRAINED_RESIZE_POLICY
+        columnResizePolicy = CONSTRAINED_RESIZE_POLICY_LAST_COLUMN
     }
 
     private val detailsView = vbox {
