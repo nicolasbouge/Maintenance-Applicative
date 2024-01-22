@@ -11,11 +11,16 @@ import java.util.stream.Collectors;
 
 public class TxtKeywordDao implements KeywordDao {
 
-    private static final String KEYWORDS_FILE_PATH = "/java_reserved_keywords.txt";
+    private final String keywordsFilePath;
+
+    // Constructeur prenant le chemin de fichier en paramètre
+    public TxtKeywordDao(String keywordsFilePath) {
+        this.keywordsFilePath = keywordsFilePath;
+    }
 
     @Override
     public Set<String> loadKeywords() {
-        try (InputStream is = TxtKeywordDao.class.getResourceAsStream(TxtKeywordDao.KEYWORDS_FILE_PATH);
+        try (InputStream is = TxtKeywordDao.class.getResourceAsStream(keywordsFilePath);
              BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
 
             return reader.lines().collect(Collectors.toSet());
