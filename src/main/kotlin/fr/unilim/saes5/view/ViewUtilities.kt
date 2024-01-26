@@ -16,7 +16,7 @@ object ViewUtilities {
     fun updateJsonFile(words: ObservableList<Word>) {
         val projectDao = JsonGlossaryDao("glossary.json")
         val glossary = Glossary(words.toList())
-        projectDao.saveProject(glossary)
+        projectDao.saveGlossary(glossary)
     }
 
     fun openWordOccurrenceView(wordRank: Map<Word, Int>, wordsInListNotInGlossary: List<Word>, glossaryRatio: Float, myBundle: ResourceBundle) {

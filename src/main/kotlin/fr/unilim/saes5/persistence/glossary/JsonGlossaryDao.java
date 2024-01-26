@@ -47,14 +47,14 @@ public class JsonGlossaryDao implements GlossaryDao {
     }
 
     @Override
-    public void saveProject(Glossary project) {
+    public void saveGlossary(Glossary project) {
         List<Glossary> singleProjectList = new ArrayList<>();
         singleProjectList.add(project);
         this.writeListToFile(singleProjectList);
     }
 
     @Override
-    public List<Glossary> getAllProjects() {
+    public List<Glossary> getAllGlossary() {
         try (Reader reader = new FileReader(this.jsonFile)) {
             Type listType = new TypeToken<ArrayList<Glossary>>() {
             }.getType();

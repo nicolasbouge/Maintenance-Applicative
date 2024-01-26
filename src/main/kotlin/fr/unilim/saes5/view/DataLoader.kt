@@ -8,7 +8,7 @@ import javafx.collections.ObservableList
 object DataLoader {
     fun loadSavedWords(words: ObservableList<Word>, contextCompletionService: CompletionService, lexicoCompletionService: CompletionService, tokenCompletionService: CompletionService) {
         val projectDao = JsonGlossaryDao("glossary.json")
-        val projects = projectDao.allProjects
+        val projects = projectDao.allGlossary
 
         contextCompletionService.clearCompletions()
         lexicoCompletionService.clearCompletions()
