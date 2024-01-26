@@ -1,4 +1,4 @@
-package fr.unilim.saes5.persistence.glossary;
+package fr.unilim.saes5.persistence.project;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -16,12 +16,12 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonGlossaryDao implements GlossaryDao {
+public class JsonProjectDao implements ProjectDao {
 
     private final File jsonFile;
     private final Gson gson;
 
-    public JsonGlossaryDao(String filePath) {
+    public JsonProjectDao(String filePath) {
         String userHome = System.getProperty("user.home");
         String directoryName = ".codelinguo";
         File directory = new File(userHome, directoryName);
@@ -47,14 +47,14 @@ public class JsonGlossaryDao implements GlossaryDao {
     }
 
     @Override
-    public void saveGlossary(Glossary project) {
+    public void saveProject(Glossary project) {
         List<Glossary> singleProjectList = new ArrayList<>();
         singleProjectList.add(project);
         this.writeListToFile(singleProjectList);
     }
 
     @Override
-    public List<Glossary> getAllGlossary() {
+    public List<Glossary> getAllProject() {
         try (Reader reader = new FileReader(this.jsonFile)) {
             Type listType = new TypeToken<ArrayList<Glossary>>() {
             }.getType();

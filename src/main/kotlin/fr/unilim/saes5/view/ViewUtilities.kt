@@ -2,7 +2,7 @@ package fr.unilim.saes5.view
 
 import fr.unilim.saes5.model.Glossary
 import fr.unilim.saes5.model.Word
-import fr.unilim.saes5.persistence.glossary.JsonGlossaryDao
+import fr.unilim.saes5.persistence.project.JsonProjectDao
 import fr.unilim.saes5.service.CompletionService
 import javafx.collections.ObservableList
 import javafx.geometry.Side
@@ -14,9 +14,9 @@ import java.util.*
 
 object ViewUtilities {
     fun updateJsonFile(words: ObservableList<Word>) {
-        val projectDao = JsonGlossaryDao("glossary.json")
+        val projectDao = JsonProjectDao("glossary.json")
         val glossary = Glossary(words.toList())
-        projectDao.saveGlossary(glossary)
+        projectDao.saveProject(glossary)
     }
 
     fun openWordOccurrenceView(wordRank: Map<Word, Int>, wordsInListNotInGlossary: List<Word>, glossaryRatio: Float, myBundle: ResourceBundle) {
