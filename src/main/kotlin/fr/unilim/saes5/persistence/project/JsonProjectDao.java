@@ -34,6 +34,10 @@ public class JsonProjectDao implements ProjectDao {
         gsonBuilder.registerTypeAdapter(Context.class, new ContextDeserializer());
         this.gson = gsonBuilder.create();
 
+        fileExtraction();
+    }
+
+    private void fileExtraction() {
         if (!this.jsonFile.exists()) {
             try {
                 boolean fileCreated = this.jsonFile.createNewFile();
