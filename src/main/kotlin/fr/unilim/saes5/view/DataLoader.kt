@@ -13,25 +13,27 @@ object DataLoader {
         contextCompletionService.clearCompletions()
         lexicoCompletionService.clearCompletions()
         tokenCompletionService.clearCompletions()
-
-        projects.forEach { project ->
-            project.words?.forEach { word ->
-                word.context?.forEach { context ->
-                    contextCompletionService.addCompletion(context.word.token ?: "")
-                }
-                word.synonyms?.forEach { synonym ->
-                    lexicoCompletionService.addCompletion(synonym.token ?: "")
-                    tokenCompletionService.addCompletion(synonym.token ?: "")
-                }
-                word.antonyms?.forEach { antonym ->
-                    lexicoCompletionService.addCompletion(antonym.token ?: "")
-                    tokenCompletionService.addCompletion(antonym.token ?: "")
-                }
-                lexicoCompletionService.addCompletion(word.token ?: "")
-                if (!words.contains(word)) {
-                    words.add(word)
+        if (!projects.isNullOrEmpty()){
+            projects.forEach { project ->
+                project.words?.forEach { word ->
+                    word.context?.forEach { context ->
+                        contextCompletionService.addCompletion(context.word.token ?: "")
+                    }
+                    word.synonyms?.forEach { synonym ->
+                        lexicoCompletionService.addCompletion(synonym.token ?: "")
+                        tokenCompletionService.addCompletion(synonym.token ?: "")
+                    }
+                    word.antonyms?.forEach { antonym ->
+                        lexicoCompletionService.addCompletion(antonym.token ?: "")
+                        tokenCompletionService.addCompletion(antonym.token ?: "")
+                    }
+                    lexicoCompletionService.addCompletion(word.token ?: "")
+                    if (!words.contains(word)) {
+                        words.add(word)
+                    }
                 }
             }
         }
+
     }
 }
