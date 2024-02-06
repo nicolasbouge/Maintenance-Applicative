@@ -67,6 +67,14 @@ class ButtonBarController(
         }
     }
 
+    private fun download(analysisWords : List<Word>){
+        val analytics = WordAnalyticsService()
+        val wordRank = analytics.wordRank(analysisWords)
+        val wordsInListNotInGlossary = analytics.wordsInListNotInGlossary(wordRank.keys.toList().map { it }, Glossary(words))
+        val glossaryRatio = analytics.glossaryRatio(analysisWords, Glossary(words))
+        ViewUtilities.openWordOccurrenceView(wordRank, wordsInListNotInGlossary, glossaryRatio, myBundle)
+    }
+
     fun addWordOrLaunchAlert(tokenInput : TextField, primaryContextInput : TextField, definitionInput :TextArea, secondaryContextInput : TextField, synonymInput : TextField, antonymInput : TextField ): ObservableList<Word> {
         if (tokenInput.text.isBlank() || primaryContextInput.text.isBlank()) {
             alert(
@@ -111,13 +119,5 @@ class ButtonBarController(
             ViewUtilities.updateJsonFile(words)
             ViewUtilities.updateCompletionService()
         }
-    }
-
-    private fun download(analysisWords : List<Word>){
-        val analytics = WordAnalyticsService()
-        val wordRank = analytics.wordRank(analysisWords)
-        val wordsInListNotInGlossary = analytics.wordsInListNotInGlossary(wordRank.keys.toList().map { it }, Glossary(words))
-        val glossaryRatio = analytics.glossaryRatio(analysisWords, Glossary(words))
-        ViewUtilities.openWordOccurrenceView(wordRank, wordsInListNotInGlossary, glossaryRatio, myBundle)
     }
 }
